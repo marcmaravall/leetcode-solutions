@@ -5,9 +5,7 @@ public:
         int total = 0;
 
         for (int n : nums) {
-            if (total < 0) {
-                total = 0;
-            }
+            total = max(total, 0);
 
             total += n;
             res = max(res, total);
