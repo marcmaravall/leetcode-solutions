@@ -1,12 +1,20 @@
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        std::unordered_map<int, int> freq;
-        for (int n : nums) {
-            if (freq[n] == 1)
-                return n;
-            freq[n]++;
+        int a = 0;
+        int b = 0;
+        
+        do {
+            a = nums[a];
+            b = nums[nums[b]];
+        } while (a != b);
+        
+        a = 0;
+        while (a != b) {
+            a = nums[a];
+            b = nums[b];
         }
-        return 0;
+        
+        return a;
     }
 };
