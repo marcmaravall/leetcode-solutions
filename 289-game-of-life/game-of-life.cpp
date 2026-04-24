@@ -43,7 +43,7 @@ public:
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                board[i][j] = board[i][j] >= 2 ? 1 : 0;
+                board[i][j] = board[i][j] >= 2;
             }
         }
     }
