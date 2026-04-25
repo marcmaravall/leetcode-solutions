@@ -12,10 +12,12 @@
 class FindElements {
 public:
     TreeNode* node;
+    std::unordered_map<int, bool> freq;
     
     void recover(TreeNode* treeNode) {
         if (!treeNode)
             return;
+        freq[treeNode->val] = true;
         if (treeNode->val != -1 && treeNode->left != nullptr)
             treeNode->left->val = 2*treeNode->val + 1;
         if (treeNode->val != -1 && treeNode->right != nullptr)
@@ -39,17 +41,9 @@ public:
         node->val = 0;
         recover(root);
     }
-
-    bool findHelper(TreeNode* root, int target) {
-        if (!root)
-            return false;
-        if (root->val == target)
-            return true;
-        return findHelper(root->left, target) || findHelper(root->right, target);
-    }
     
     bool find(int target) {
-        return findHelper(node, target);
+        return freq[target];
     }
 };
 
