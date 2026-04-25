@@ -18,13 +18,14 @@ public:
         if (!treeNode)
             return;
         freq[treeNode->val] = true;
-        if (treeNode->val != -1 && treeNode->left != nullptr)
+        if (treeNode->val != -1 && treeNode->left != nullptr) {
             treeNode->left->val = 2*treeNode->val + 1;
-        if (treeNode->val != -1 && treeNode->right != nullptr)
+            recover(treeNode->left);
+        }
+        if (treeNode->val != -1 && treeNode->right != nullptr) {
             treeNode->right->val = 2*treeNode->val + 2;
-
-        recover(treeNode->left);
-        recover(treeNode->right);
+            recover(treeNode->right);
+        }
     }
 
     void contaminate(TreeNode* root) {
