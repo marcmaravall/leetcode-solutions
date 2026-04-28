@@ -16,14 +16,13 @@ public:
     void helper(TreeNode* root) {
         if (!root)
             return;
-        arr.push_back(root->val);
         helper(root->left);
+        arr.push_back(root->val);
         helper(root->right);
     }
 
     int kthSmallest(TreeNode* root, int k) {
         helper(root);
-        std::sort(arr.begin(), arr.end());
         return arr[k-1];
     }
 };
