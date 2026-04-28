@@ -11,18 +11,17 @@
  */
 class Solution {
 public:
-    std::vector<int> arr;
-
-    void helper(TreeNode* root) {
+    void helper(TreeNode* root, std::vector<int>& arr) {
         if (!root)
             return;
-        helper(root->left);
+        helper(root->left, arr);
         arr.push_back(root->val);
-        helper(root->right);
+        helper(root->right, arr);
     }
 
     int kthSmallest(TreeNode* root, int k) {
-        helper(root);
+        std::vector<int> arr{};
+        helper(root, arr);
         return arr[k-1];
     }
 };
