@@ -11,32 +11,17 @@
  */
 class Solution {
 public:
-    std::vector<int> arr {};
-
-    void helper(TreeNode* root) {
-        if (!root)
-            return;
-        arr.push_back(root->val);
-        helper(root->left);
-        helper(root->right);
-    }
-
-    void toGst(TreeNode* root) {
-        if (!root)
-            return;
-        int c = 0;
-        for (int n : arr) {
-            if (n > root->val)
-                c += n;
-        }
-        root->val += c;
-        toGst(root->left);
-        toGst(root->right);
-    }
+    int sum = 0;
 
     TreeNode* bstToGst(TreeNode* root) {
-        helper(root);
-        toGst(root);
+        if (!root)
+            return nullptr;
+        
+        bstToGst(root->right);
+        sum += root->val;
+        root->val = sum;
+        bstToGst(root->left);
+        
         return root;
     }
 };
