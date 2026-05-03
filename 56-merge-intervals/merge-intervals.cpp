@@ -14,16 +14,13 @@ public:
                 break;
             }
 
-            int j = i;
             int end = intervals[i][1];
-            bool merged = false;
             while (i < n-1 && end >= intervals[i+1][0]) {
                 end = max(end, intervals[i+1][1]);
                 i++;
-                merged = true;
             }
 
-            res.push_back({start, merged ? end : intervals[j][1]});
+            res.push_back({start, end});
         }
 
         return res;
