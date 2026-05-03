@@ -1,9 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        std::sort(intervals.begin(), intervals.end(), [](std::vector<int>& a, std::vector<int>& b) {
-            return a[0] < b[0];
-        });
+        std::sort(intervals.begin(), intervals.end());
 
         int n = intervals.size();
         std::vector<std::vector<int>> res;
