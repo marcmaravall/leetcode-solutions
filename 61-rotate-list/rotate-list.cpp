@@ -23,7 +23,7 @@ public:
         ListNode* last = head;
 
         int size = 0;
-        while (head) {
+        while (head->next) {
             size++;
 
             if (head->next && !head->next->next) {
@@ -43,8 +43,6 @@ public:
         end->next = start;
         last->next = nullptr;
 
-        //std::cout << "size: " << size << "\n";
-        //std::cout << "k: " << k << "\n";
         return rotateRight(end, k-1);
     }
 };
