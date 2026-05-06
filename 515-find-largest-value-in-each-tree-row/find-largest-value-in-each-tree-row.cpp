@@ -14,9 +14,11 @@ public:
     vector<int> largestValues(TreeNode* root) {
         if (!root)
             return {};
+
         std::vector<int> res;
         std::queue<TreeNode*> q;
         q.push(root);
+        
         while (!q.empty()) {
             int s = q.size();
             int m = INT_MIN;
@@ -31,6 +33,7 @@ public:
             }
             res.push_back(m);
         }
+        
         return res;
     }
 };
