@@ -28,9 +28,10 @@ public:
     void insert(const std::string_view word) {
         Node* x = parent;
         for (int i = 0; i < word.size(); i++) {
-            if (x->children[word[i]-'a'] == nullptr)
-                x->children[word[i]-'a'] = new Node(word[i]-'a');
-            x = x->children[word[i]-'a'];
+            int j = word[i]-'a';
+            if (x->children[j] == nullptr)
+                x->children[j] = new Node(j);
+            x = x->children[j];
         }
         x->isEnd = true;
     }
@@ -40,9 +41,11 @@ public:
         Node* x = parent;
 
         for (int i = 0; i < size; i++) {
-            if (x->children[word[i]-'a'] == nullptr)
+            int j = word[i]-'a';
+
+            if (x->children[j] == nullptr)
                 return false;
-            x = x->children[word[i]-'a'];
+            x = x->children[j];
         }
 
         return x->isEnd;
@@ -53,9 +56,11 @@ public:
         Node* x = parent;
 
         for (int i = 0; i < size; i++) {
-            if (x->children[word[i]-'a'] == nullptr)
+            int j = word[i]-'a';
+
+            if (x->children[j] == nullptr)
                 return false;
-            x = x->children[word[i]-'a'];
+            x = x->children[j];
         }
 
         return true;
