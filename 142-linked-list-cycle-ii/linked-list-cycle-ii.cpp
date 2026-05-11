@@ -11,21 +11,21 @@ public:
     ListNode *detectCycle(ListNode *head) {
         ListNode* fast = head;
         ListNode* slow = head;
-        while (fast && fast->next && slow) {
+
+        while (fast && fast->next) {
             fast = fast->next->next;
             slow = slow->next;
 
             if (fast == slow) {
                 slow = head;
-                while (slow != fast) {
-                    slow = slow->next;
-                    fast = fast->next;
-                }
 
-                return fast;
+                while (fast != slow) {
+                    fast = fast->next;
+                    slow = slow->next;
+                }
+                return slow;
             }
         }
-
         return nullptr;
     }
 };
