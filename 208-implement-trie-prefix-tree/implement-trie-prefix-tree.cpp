@@ -1,7 +1,7 @@
 class Trie {
 public:
     typedef struct Node {
-        char value;
+        char value = '\0';
         bool isEnd = false;
         Node* children[26];
 
@@ -23,12 +23,9 @@ public:
 
     Trie() {
         parent = new Node();
-        parent->value = '\0';
-        for (int i = 0; i < 26; i++) 
-            parent->children[i] = nullptr;
     }
     
-    void insert(string word) {
+    void insert(const std::string_view word) {
         Node* x = parent;
         for (int i = 0; i < word.size(); i++) {
             if (x->children[word[i]-'a'] == nullptr)
@@ -38,7 +35,7 @@ public:
         x->isEnd = true;
     }
     
-    bool search(string word) {
+    bool search(const std::string_view word) {
         size_t size = word.size();
         Node* x = parent;
 
@@ -51,7 +48,7 @@ public:
         return x->isEnd;
     }
     
-    bool startsWith(std::string word) {
+    bool startsWith(const std::string_view word) {
         size_t size = word.size();
         Node* x = parent;
 
