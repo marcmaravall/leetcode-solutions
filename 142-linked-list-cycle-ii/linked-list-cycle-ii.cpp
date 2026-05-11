@@ -9,12 +9,21 @@
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
-        std::unordered_map<ListNode*, bool> map;
-        while (head && head->next) {
-            map[head] = true;
-            head = head->next;
-            if (map[head])
-                return head;
+        ListNode* fast = head;
+        ListNode* slow = head;
+        while (fast && fast->next && slow) {
+            fast = fast->next->next;
+            slow = slow->next;
+
+            if (fast == slow) {
+                slow = head;
+                while (slow != fast) {
+                    slow = slow->next;
+                    fast = fast->next;
+                }
+
+                return fast;
+            }
         }
 
         return nullptr;
