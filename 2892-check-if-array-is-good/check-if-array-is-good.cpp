@@ -6,6 +6,7 @@ public:
             return false;
 
         std::sort(nums.begin(), nums.end());
+        
         for (int i = 0; i < n; i++) {
             if (i == n-1) {
                 return nums[i] == nums[i-1];
@@ -13,6 +14,7 @@ public:
                 return false;
             }
         }
+
         return true;
     }
 };
