@@ -14,8 +14,9 @@ public:
                 return;
             }
 
-            for (int i = index+1; i < size; i++) {
-                if (i > index+1 && candidates[i-1] == candidates[i])
+            int start = index+1;
+            for (int i = start; i < size; i++) {
+                if (i > start && candidates[i-1] == candidates[i])
                     continue;
                 
                 vec.push_back(candidates[i]);
