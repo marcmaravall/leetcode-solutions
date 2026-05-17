@@ -2,15 +2,18 @@ class Solution {
 public:
     int jump(vector<int>& nums) {
         int n = nums.size();
-        std::vector<int> dp(n, 1000000);
-        dp[n-1] = 0;
-        for (int i = n-1; i >= 0; i--) {
-            int maxJump = nums[i];
-            for (int j = 0; j <= maxJump && i + j < n; j++) {
-                dp[i] = min(dp[i+j] + 1, dp[i]);
+        int res = 0;
+        int end = 0;
+        int far = 0;
+
+        for (int i = 0; i < n-1; i++) {
+            far = max(far, i + nums[i]);
+            if (i == end) {
+                res++;
+                end = far;
             }
         }
 
-        return dp[0];
+        return res;
     }
 };
