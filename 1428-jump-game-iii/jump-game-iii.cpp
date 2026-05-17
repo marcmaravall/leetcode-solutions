@@ -2,7 +2,7 @@ class Solution {
 public:
     bool canReach(vector<int>& arr, int start) {
         std::queue<int> q;
-        std::unordered_map<int, bool> computed;
+        std::vector<int> computed(arr.size(), 0);
         q.push(start);
 
         while (!q.empty()) {
@@ -21,14 +21,12 @@ public:
                     return true;
                 }
 
-                if (!computed[index + arr[index]]) {
-                    if (index + arr[index] < arr.size())
-                        q.push(index + arr[index]);
+                if ((index + arr[index] < arr.size()) && !computed[index + arr[index]]) {
+                    q.push(index + arr[index]);
                 }
 
-                if (!computed[index - arr[index]]) {
-                    if (index - arr[index] >= 0)
-                        q.push(index - arr[index]);
+                if ((index - arr[index] >= 0) && !computed[index - arr[index]]) {
+                    q.push(index - arr[index]);
                 }
 
                 q.pop();
