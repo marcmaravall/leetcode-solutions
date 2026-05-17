@@ -6,17 +6,15 @@ public:
         });
 
         int n = intervals.size();
-
         int prev = 0;
-        int count = 1;
+        int res = n-1;
 
         for (int i = 1; i < n; i++) {
             if (intervals[i][0] >= intervals[prev][1]) {
+                res--;
                 prev = i;
-                count++;
             }
         }
-
-        return n-count;
+        return res;
     }
 };
