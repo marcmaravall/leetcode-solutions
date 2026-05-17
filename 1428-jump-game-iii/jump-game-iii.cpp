@@ -10,8 +10,9 @@ public:
 
             for (int i = 0; i < s; i++) {
                 int index = q.front();
+                q.pop();
+
                 if (computed[index]) {
-                    q.pop();
                     continue;
                 }
 
@@ -28,8 +29,6 @@ public:
                 if ((index - arr[index] >= 0) && !computed[index - arr[index]]) {
                     q.push(index - arr[index]);
                 }
-
-                q.pop();
             }
         }
 
