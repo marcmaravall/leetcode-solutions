@@ -13,7 +13,7 @@ public:
             digit *= 10;
         }
 
-        first = first + (n - 1) / length;
+        first += (n - 1) / length;
 
         std::string str = to_string(first);
         return str[(n - 1) % length] - '0';
