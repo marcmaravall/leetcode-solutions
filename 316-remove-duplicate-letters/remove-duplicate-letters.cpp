@@ -1,7 +1,7 @@
 class Solution {
 public:
     string removeDuplicateLetters(string s) {
-        vector<int> lastIndex(26, 0);
+        std::vector<int> lastIndex(26, 0);
         for (int i = 0; i < s.length(); i++){
             lastIndex[s[i] - 'a'] = i;
         }
@@ -29,8 +29,9 @@ public:
             res += st.top();
             st.pop();
         }
+
+        std::reverse(res.begin(), res.end());
         
-        reverse(res.begin(), res.end());
         return res;
     }
 };
