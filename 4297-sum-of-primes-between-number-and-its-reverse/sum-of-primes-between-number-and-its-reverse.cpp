@@ -1,32 +1,36 @@
 class Solution {
 public:
-    int rev(int n) {
-        std::string str = std::to_string(n);
-        std::reverse(str.begin(), str.end());
-        n = std::stoi(str);
+    bool prime(int n) {
+        if (n < 2)
+            return false;
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0)
+                return false;
+        }
 
-        return n;
+        return true;
     }
 
     int sumOfPrimesInRange(int n) {
-        std::vector<bool> prime(1001, true);
-        for (int i = 2; i < prime.size(); i++) {
-            int n = i;
-            bool p = prime[i];
-            while (n < prime.size()) {
-                prime[n] = false;
-                n += i;
-            }
-            if (p) prime[i] = true;
+        int num = n;
+        int rev = 0;
+
+        while (num != 0) {
+            int digit = num % 10;
+            rev = rev * 10 + digit;
+            num /= 10;
         }
-        prime[1] = false;
-        
+
+        int l = min(n, rev);
+        int r = max(n, rev);
+
         int res = 0;
-        for (int i = min(rev(n), n); i <= max(n, rev(n)); i++) {
-            if (prime[i]) {
-                res+=i;
-            }
+
+        for (int i = l; i <= r; i++) {
+            if (prime(i))
+                res += i;
         }
+
         return res;
     }
 };
