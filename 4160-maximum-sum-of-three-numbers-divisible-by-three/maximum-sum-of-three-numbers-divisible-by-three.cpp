@@ -1,6 +1,7 @@
 class Solution {
 public:
     int maximumSum(vector<int>& nums) {
+        // n % 3 results in range [0, 2]
         std::vector<int> _0;
         std::vector<int> _1;
         std::vector<int> _2;
