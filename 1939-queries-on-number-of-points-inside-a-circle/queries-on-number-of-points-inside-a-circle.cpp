@@ -5,7 +5,7 @@ public:
     }
 
     vector<int> countPoints(vector<vector<int>>& points, vector<vector<int>>& queries) {
-        std::vector<int> res;
+        std::vector<int> res(queries.size());
 
         for (int i = 0; i < queries.size(); i++) {
             int current = 0;
@@ -14,7 +14,7 @@ public:
                     current++;
                 }
             }
-            res.push_back(current);
+            res[i] = current;
         }
 
         return res;
