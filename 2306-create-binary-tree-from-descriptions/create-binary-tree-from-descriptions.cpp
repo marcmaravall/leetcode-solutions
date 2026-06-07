@@ -23,16 +23,16 @@ public:
             const int child = description[1];
             const bool left = description[2];
 
-            if (nodes[child].node == nullptr) {
+            if (nodes[child].node == nullptr)
                 nodes[child].node = new TreeNode(child);
-            }
-            if (nodes[parent].node == nullptr) {
+        
+            if (nodes[parent].node == nullptr) 
                 nodes[parent].node = new TreeNode(parent);
-            }
+        
             nodes[child].hasParent = true;
             
             if (left) nodes[parent].node->left = nodes[child].node;
-            else nodes[parent].node->right = nodes[child].node;
+            else      nodes[parent].node->right = nodes[child].node;
         }
 
         for (auto& entry : nodes) {
