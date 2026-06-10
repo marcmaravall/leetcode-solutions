@@ -1,22 +1,21 @@
 class Solution {
 public:
     vector<int> diStringMatch(string s) {
-        std::vector<int> res;
-        int left = 0;
-        int right = s.size();
-        
+        std::vector<int> res {};
+        int i = 0;
+        int j = s.size();
+
         for (char c : s) {
             if (c == 'I') {
-                res.push_back(left);
-                left++;
+                res.push_back(i);
+                i++;
             } else {
-                res.push_back(right);
-                right--;
+                res.push_back(j);
+                j--;
             }
         }
-
-        res.push_back(right);
-
+        
+        res.push_back(j);
         return res;
     }
 };
