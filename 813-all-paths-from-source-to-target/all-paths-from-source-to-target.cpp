@@ -4,7 +4,8 @@ public:
         std::vector<std::vector<int>> res;
 
         const int target = graph.size()-1;
-        std::function<void(std::vector<int>&, int)> dfs = [&](std::vector<int>& vec, int current) -> void {
+        std::function<void(std::vector<int>&, int)> dfs = 
+            [&](std::vector<int>& vec, int current) {
             if (current == target) {
                 res.push_back(vec);
                 return;
