@@ -24,7 +24,7 @@ public:
             graph[edge[1]].push_back(edge[0]);
         }
 
-        int maxDepth = 0;
+        int k = 0;
         auto dfs = [&](this auto&& dfs, int node, int prev) -> int {
             int res = 0;
 
@@ -34,8 +34,8 @@ public:
 
             return res;
         };
-        maxDepth = dfs(1, 0);
+        k = dfs(1, 0);
 
-        return pow(2, maxDepth-1);
+        return pow(2, k-1);
     }
 };
