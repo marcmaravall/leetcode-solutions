@@ -7,9 +7,8 @@ public:
         
         std::vector<int> res;
         for (int x : arr2) {
-            for (int i = 0; i < freq[x]; i++) {
-                res.push_back(x);
-            }
+            std::vector<int> v(freq[x], x);
+            res.insert(res.end(), v.begin(), v.end());
             freq[x] = 0;
         }
 
