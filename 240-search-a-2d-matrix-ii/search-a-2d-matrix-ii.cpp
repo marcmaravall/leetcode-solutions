@@ -3,11 +3,17 @@ public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         const int n = matrix.size();
         const int m = matrix[0].size();
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (matrix[i][j] == target)
-                    return true;
-            }
+
+        int r = 0;
+        int c = m-1;
+        
+        while (r <= n-1 && c >= 0){
+            if (matrix[r][c]== target)
+                return true;
+            else if (matrix[r][c] > target)
+                c--;
+            else 
+                r++;
         }
 
         return false;
