@@ -11,7 +11,6 @@ public:
                 for (auto& c : last)
                     c = false;
             } 
-
             last[s[i]] = true;
         }
 
