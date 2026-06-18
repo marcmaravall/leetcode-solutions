@@ -1,18 +1,18 @@
 class Solution {
 public:
     int partitionString(string s) {
-        std::vector<int> last(127, -1);
+        std::vector<uint8_t> last(127, false);
         int res = 1;
 
         const int n = s.size();
         for (int i = 0; i < n; i++) {
-            if (last[s[i]] != -1) {
+            if (last[s[i]]) {
                 res++;
-                for (int& c : last)
-                    c = -1;
+                for (auto& c : last)
+                    c = false;
             } 
-            
-            last[s[i]] = i;
+
+            last[s[i]] = true;
         }
 
         return res;
