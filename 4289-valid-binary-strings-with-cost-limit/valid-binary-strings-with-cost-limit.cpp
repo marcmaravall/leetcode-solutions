@@ -1,11 +1,13 @@
 class Solution {
 public:
     vector<string> generateValidStrings(int n, int k) {
-        std::vector<std::string> res;
-        std::function<void(std::string&, int)> backtracking = [&](std::string& str, int cost) {
-            if (str.size() == n && cost <= k) {
+        std::vector<std::string> res = {};
+
+        std::function<void(std::string&, int)> backtracking = 
+            [&](std::string& str, int cost) {
+            if (str.size() == n && cost <= k) 
                 res.push_back(str);
-            } else if (str.size() > n || cost > k)
+            else if (str.size() > n || cost > k)
                 return;
 
             str += '0';
