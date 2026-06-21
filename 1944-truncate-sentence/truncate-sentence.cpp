@@ -6,9 +6,10 @@ public:
         std::string res = "";
 
         for (int i = 0; i < k && std::getline(ss, word, ' '); i++) {
-            res += word + " ";
+            res += word;
+            if (i != k-1)
+                res += " ";
         }
-        res.pop_back();
 
         return res;
     }
