@@ -31,9 +31,9 @@ public:
             sums.push_back(current);
         }
 
-        std::sort(sums.rbegin(), sums.rend());
-        
         if (k-1 >= sums.size()) return -1;
+        
+        std::sort(sums.rbegin(), sums.rend());
         return sums[k-1];
     }
 };
