@@ -1,7 +1,7 @@
 class Bank {
 private:
-    std::vector<long long> accounts;
-    int n;
+    std::vector<long long> accounts {};
+    int n = 0;
 
 public:
     Bank(vector<long long>& balance) {
