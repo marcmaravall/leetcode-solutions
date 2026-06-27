@@ -10,13 +10,11 @@ public:
 
         while (left <= right) {
             res++;
-            int s = people[left] + people[right];
-            if (s <= limit) {
+            int sum = people[left] + people[right];
+            if (sum <= limit) {
                 left++;
-                right--;
-            } else {
-                right--;
             }
+            right--;
         }
 
         return res;
