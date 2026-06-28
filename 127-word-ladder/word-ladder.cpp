@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool valid(std::string& a, std::string& b) {
+    bool valid(std::string_view a, std::string_view b) {
         bool found = false;
         const int n = a.size();
         for (int i = 0; i < n; i++) {
@@ -15,7 +15,7 @@ public:
 
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
         int res = 1;
-        std::queue<std::string> q;
+        std::queue<std::string_view> q;
         std::unordered_map<std::string_view, bool> memo;
         q.push(beginWord);
         memo[beginWord] = true;
@@ -23,7 +23,7 @@ public:
         while (!q.empty()) {
             size_t s = q.size();
             for (int i = 0; i < s; i++) {
-                std::string current = q.front();
+                std::string_view current = q.front();
                 q.pop();
                 if (current == endWord)
                     return res;
