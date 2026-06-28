@@ -14,7 +14,7 @@ public:
 
     int minMutation(string startGene, string endGene, vector<string>& bank) {
         const int n = bank.size();
-        std::unordered_map<std::string, bool> memo;
+        std::unordered_map<std::string_view, bool> memo;
         std::queue<std::string> q;
         q.push(startGene);
         memo[startGene] = true;
