@@ -1,10 +1,14 @@
 class Solution {
 public:
     vector<int> transformArray(vector<int>& nums) {
+        int freq[2];
         for (int& n : nums) {
-            n = n%2;
+            freq[n%2]++;
         }
-        std::sort(nums.begin(), nums.end());
-        return nums;
+        std::vector<int> res(freq[0], 0);
+        std::vector<int> ones(freq[1], 1);
+        res.insert(res.end(), ones.begin(), ones.end());
+
+        return res;
     }
 };
