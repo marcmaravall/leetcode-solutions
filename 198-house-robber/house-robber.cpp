@@ -2,13 +2,16 @@ class Solution {
 public:
     int rob(vector<int>& nums) {
         const int n = nums.size();
-        std::vector<int> dp(n, 0);
-        dp[n-1] = nums[n-1];
+        int a = nums[n-1], b = a, res = 0;
         if (n >= 2)
-            dp[n-2] = std::max(nums[n-2], nums[n-1]);
+            b = std::max(nums[n-2], nums[n-1]);
+        
         for (int i = n-3; i >= 0; i--) {
-            dp[i] = std::max(nums[i] + dp[i+2], dp[i+1]);
+            int temp = a;
+            a = b;
+            b = std::max(nums[i] + temp, b);
         }
-        return dp[0];
+        
+        return b;
     }
 };
