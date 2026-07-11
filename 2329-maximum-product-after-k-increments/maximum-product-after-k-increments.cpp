@@ -17,6 +17,6 @@ public:
             pqueue.pop();
             res %= MOD;
         }
-        return res;
+        return (int)res;
     }
 };
