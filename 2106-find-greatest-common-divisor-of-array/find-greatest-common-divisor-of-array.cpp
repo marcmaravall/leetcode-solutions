@@ -1,12 +1,6 @@
 class Solution {
 public:
     int findGCD(vector<int>& nums) {
-        int mx = 0;
-        int mi = INT_MAX;
-        for (int n : nums) {
-            mx = std::max(mx, n);
-            mi = std::min(mi, n);
-        }
-        return std::gcd(mx, mi);
+        return std::gcd(*std::min_element(nums.begin(), nums.end()), *std::max_element(nums.begin(), nums.end()));
     }
 };
