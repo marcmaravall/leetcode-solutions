@@ -2,16 +2,14 @@ class Solution {
 public:
     string smallestSubsequence(string s) {
         std::vector<int> lastIndex(26, 0);
-        const int n = s.size();
-        
-        for (int i = 0; i < n; i++){
+        for (int i = 0; i < s.length(); i++){
             lastIndex[s[i] - 'a'] = i;
         }
         
         std::vector<bool> seen(26, false); 
         std::stack<char> st;
         
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < s.size(); i++) {
             int curr = s[i] - 'a';
             
             if (seen[curr]) 
