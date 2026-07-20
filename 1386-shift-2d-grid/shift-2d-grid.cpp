@@ -5,14 +5,10 @@ public:
         for (auto& vec : grid)
             arr.insert(arr.end(), vec.begin(), vec.end());
 
-        const int s = arr.size();
-        for (int i = 0; i < k; i++) {
-            int last = arr[s-1];
-            for (int j = s-2; j >= 0; j--) {
-                arr[j+1] = arr[j];
-            }
-            arr[0] = last;
-        }
+        k %= arr.size();
+        std::reverse(arr.begin(), arr.end());
+        std::reverse(arr.begin(), arr.begin()+k);
+        std::reverse(arr.begin()+k, arr.end());
         
         const int n = grid.size();
         const int m = grid[0].size();
