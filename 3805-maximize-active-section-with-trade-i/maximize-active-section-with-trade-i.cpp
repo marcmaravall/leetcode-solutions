@@ -5,23 +5,20 @@ public:
         for (char c : s)
             ones += c == '1';
         const int n = s.size();
-        std::vector<int> zeros;
         int i = 0;
+        int best = 0;
+        int prev = INT_MIN;
+        int current = 0;
         while (i < n) {
-            int st = i;
-            while (i < n && s[st] == s[i])
+            int start = i;
+            while (i < n && s[i] == s[start])
                 i++;
-            if (s[st] == '0') {
-                zeros.push_back(i-st);
+            if (s[start] == '0') {
+                current = i-start;
+                best = std::max(best, prev+current);
+                prev = current;
             }
         }
-
-        const int m = zeros.size();
-        if (m <= 1)
-            return ones;
-        int best = 0;
-        for (int i = 0; i < m-1; i++)
-            best = std::max(best, zeros[i] + zeros[i+1]);
         return ones + best;
     }
 };
