@@ -2,18 +2,18 @@ class Solution {
 public:
     int maxActiveSectionsAfterTrade(string s) {
         int ones = std::count(s.begin(), s.end(), '1');
-        int prev = INT_MIN;
         int best = 0;
-        int i = 0;
+        int last = INT_MIN;
         const int n = s.size();
+        int i = 0;
         while (i < n) {
-            int st = i;
-            while (i < n && s[i] == s[st])
+            int start = i;
+            while (i < n && s[i] == s[start]) 
                 i++;
-            if (s[st] == '0') {
-                int curr = i-st;
-                best = std::max(best, curr+prev);
-                prev = curr;
+            if (s[start] == '0') {
+                int current = i-start;
+                best = std::max(best, current+last);
+                last = current;
             }
         }
         return ones+best;
