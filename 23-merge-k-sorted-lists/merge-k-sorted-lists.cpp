@@ -25,9 +25,11 @@ public:
         
         if (pqueue.empty())
             return nullptr;
+        
         ListNode* last = pqueue.top();
         last->next = nullptr;
         pqueue.pop();
+
         while (!pqueue.empty()) {
             ListNode* curr = pqueue.top();
             pqueue.pop();
