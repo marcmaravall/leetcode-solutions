@@ -4,16 +4,16 @@ public:
         const int n = nums.size();
         const int m = queries.size();
         std::sort(nums.begin(), nums.end());
-        std::vector<int> res;
-        for (int query : queries) {
+        std::vector<int> res(m);
+        for (int j = 0; j < m; j++) {
             int sum = 0;
             int i;
             for (i = 0; i < n; i++) {
-                if (sum+nums[i] > query)
+                if (sum+nums[i] > queries[j])
                     break;
                 sum += nums[i];
             }
-            res.push_back(i);
+            res[j] = i;
         }
         return res;
     }
