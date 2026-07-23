@@ -6,12 +6,11 @@ public:
             return 1;
         else if (n == 2)
             return 2;
-        int res = 0;
+        int p = 0;
         for (int i = 0; i < 32; i++) {
             if (n & (1 << i))
-                res = i+1;
+                p = i+1;
         }
-        res = std::pow(2, res);
-        return res;
+        return std::pow(2, p);
     }
 };
