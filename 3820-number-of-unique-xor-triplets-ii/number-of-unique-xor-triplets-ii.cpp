@@ -5,8 +5,8 @@ public:
         int u = 1;
         while (u <= mx)
             u *= 2;
-        const int n = nums.size();
         std::vector<bool> s(u);
+        const int n = nums.size();
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
                 s[nums[i]^nums[j]] = true;
@@ -16,12 +16,10 @@ public:
         for (int i = 0; i < u; i++) {
             if (!s[i])
                 continue;
-            for (int x : nums) {
-                t[x^i] = true;
-            }
+            for (int x : nums)
+                t[i^x] = true;
         }
         
-        int res = std::count(t.begin(), t.end(), true);
-        return res;
+        return std::count(t.begin(), t.end(), true);
     }
 };
