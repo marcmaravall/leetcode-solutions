@@ -9,8 +9,6 @@ public:
         int res = 0;
         int current = 0;
         for (int i = 0; i < 27; i++) {
-            if (freq[i] == 0)
-                continue;
             current++;
             if (current > 24)
                 res += freq[i]*4;
