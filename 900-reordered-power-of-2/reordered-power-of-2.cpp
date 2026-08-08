@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool reorderedPowerOf2(int n) {
-        std::vector<std::array<int, 10>> freq(31, std::array<int, 10>());
+        std::vector<std::array<int, 10>> freq(30);
         int pow = 1;
         for (int i = 0; pow < (1 << 30); i++) {
             int cpy = pow;
