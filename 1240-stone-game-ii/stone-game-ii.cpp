@@ -10,12 +10,10 @@ public:
         if (memo.count(key))
             return memo[key];
         int res = INT_MAX;
-        for (int j = 1; j <= 2*m; j++) {
+        for (int j = 1; j <= 2*m; j++)
             res = std::min(res, dfs(i+j, std::max(m, j), piles));
-        }
-        res = piles[i] - res;
-        memo[key] = res;
-        return res;
+        memo[key] = piles[i] - res;
+        return memo[key];
     }
 
     int stoneGameII(vector<int>& piles) {
