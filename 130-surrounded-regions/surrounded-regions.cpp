@@ -5,7 +5,6 @@ public:
         std::function<bool(int, int, std::unordered_map<int, bool>&)> surronded = [&](int y, int x, std::unordered_map<int, bool>& memo){
             if (board[y][x] == 'X')
                 return true;
-            
             if (y == 0 || x == 0 || y == n-1 || x == m-1)
                 return false;
             
