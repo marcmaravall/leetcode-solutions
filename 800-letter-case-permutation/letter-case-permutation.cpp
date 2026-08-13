@@ -13,10 +13,8 @@ public:
 
         s[i] = std::tolower(curr);
         backtrack(s, i+1, vec);
-
         s[i] = std::toupper(curr);
         backtrack(s, i+1, vec);
-        
         s[i] = curr;
     }
 
