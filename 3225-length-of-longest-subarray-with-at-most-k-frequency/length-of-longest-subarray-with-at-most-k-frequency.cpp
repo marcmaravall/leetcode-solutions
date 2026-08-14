@@ -9,10 +9,10 @@ public:
         while (left < n && right < n) {
             if (freq[nums[right]] >= k) {
                 freq[nums[left++]]--;
-            } else {
-                freq[nums[right++]]++;
-                res = std::max(right-left, res);
+                continue;
             }
+            freq[nums[right++]]++;
+            res = std::max(right-left, res);
         }
         return res;
     }
