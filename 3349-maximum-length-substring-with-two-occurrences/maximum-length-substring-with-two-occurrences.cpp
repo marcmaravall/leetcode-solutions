@@ -5,12 +5,12 @@ public:
         int right = 0;
         int res = 0;
         const int n = s.size();
-        std::vector<int> freq(127, 0);
+        std::vector<int> freq(27, 0);
         while (left < n && right < n) {
-            if (freq[s[right]] >= 2) {
-                freq[s[left++]]--;
+            if (freq[s[right]-'a'] >= 2) {
+                freq[s[left++]-'a']--;
             } else {
-                freq[s[right++]]++;
+                freq[s[right++]-'a']++;
                 res = std::max(right-left, res);
             }
         }
