@@ -1,22 +1,24 @@
 class Solution {
 public:
-    void dfs(std::vector<int> nums, int i, int j, std::vector<std::vector<int>>& res) {
-        if (i == j-1) {
+    void backtrack(std::vector<int> nums, int i, std::vector<std::vector<int>>& res) {
+        const int n = nums.size();
+        if (i == n) {
             res.push_back(nums);
             return;
         }
-        for (int k = i ; k < j; k++) {
+
+        for (int k = i ; k < n; k++) {
             if (i != k && nums[i] == nums[k])
                 continue;
             std::swap(nums[i], nums[k]);
-            dfs(nums, i+1, j, res);
+            backtrack(nums, i+1, res);
         }
     }
 
     vector<vector<int>> permuteUnique(vector<int>& nums) {
         std::sort(nums.begin(), nums.end());
         std::vector<std::vector<int>> res;
-        dfs(nums, 0, nums.size(), res);
+        backtrack(nums, 0, res);
         return res;
     }
 };
