@@ -1,15 +1,18 @@
+#define MAX 100000
+bool dp[MAX+1];
+std::vector<int> moves;
+
 class Solution {
 public:
-    inline bool perfectSquare(int n) {
+    static inline bool perfectSquare(int n) {
         int root = std::sqrt(n);
         return root*root == n;
     }
 
-    bool winnerSquareGame(int n) {
-        std::vector<bool> dp(n+1);
-        std::vector<int> moves { 1 };
+    inline static bool init = []() {
+        moves = { 1 };
         dp[1] = true;
-        for (int i = 2; i <= n; i++) {
+        for (int i = 2; i <= MAX; i++) {
             if (perfectSquare(i)) {
                 dp[i] = true;
                 moves.push_back(i);
@@ -20,6 +23,10 @@ public:
                     dp[i] = true;
             }
         }
+        return true;
+    }();
+
+    bool winnerSquareGame(int n) {
         return dp[n];
     }
 };
