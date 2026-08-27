@@ -51,10 +51,6 @@ public:
         bool allLeafs = topLeft->isLeaf && topRight->isLeaf && bottomLeft->isLeaf && bottomRight->isLeaf;
         int sum = topLeft->val + topRight->val + bottomLeft->val + bottomRight->val;
         if (allLeafs && sum % 4 == 0) {
-            delete topLeft;
-            delete topRight;
-            delete bottomLeft;
-            delete bottomRight;
             return new Node(sum==4, true);
         }
         return new Node(false, false, topLeft, topRight, bottomLeft, bottomRight);
