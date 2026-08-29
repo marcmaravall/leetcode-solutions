@@ -7,7 +7,7 @@ public:
         std::sort(nums.begin(), nums.end());
         const int n = nums.size();
         for (int i = 0; i < n; i++) {
-            res += i < n/2 ? -nums[i]*nums[i] : nums[i]*nums[i];
+            res += (i < n/2 ? -nums[i] : nums[i])*nums[i];
         }
         return res;
     }
