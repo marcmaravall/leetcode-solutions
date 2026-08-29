@@ -17,8 +17,6 @@ public:
                 curr += (prefix[n-1]-prefix[i])-((long long)s*(long long)beans[i]);
             }
             res = std::min(res, curr);
-            while (i < n-1 && beans[i] == beans[i+1])
-                i++;
         }
         return res;
     }
