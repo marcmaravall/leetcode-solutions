@@ -8,8 +8,8 @@ public:
         int size = 0;
         const int n = boxTypes.size();
         for (int i = 0; i < n; i++) {
-            int boxes = boxTypes[i][1];
-            int units = boxTypes[i][0];
+            const int boxes = boxTypes[i][1];
+            const int units = boxTypes[i][0];
             if (size + units >= truckSize) {
                 res += boxes*(truckSize-size);
                 break;
