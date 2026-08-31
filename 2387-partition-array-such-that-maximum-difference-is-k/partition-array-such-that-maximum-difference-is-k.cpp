@@ -7,8 +7,8 @@ public:
         const int n = nums.size();
         for (int i = 0; i < n; i++) {
             if (nums[i]-m > k) {
-                res++;
                 m = nums[i];
+                res++;
             }
         }
         return res;
