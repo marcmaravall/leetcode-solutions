@@ -8,11 +8,13 @@ public:
                 occurrences.push_back(i);
         }
         const int m = queries.size();
+        const int os = occurrences.size();
         std::vector<int> res(m);
         for (int i = 0; i < m; i++) {
-            if (queries[i] > occurrences.size())
+            int query = queries[i];
+            if (query > os)
                 res[i] = -1;
-            else res[i] = occurrences[queries[i]-1];
+            else res[i] = occurrences[query-1];
         }
         return res;
     }
