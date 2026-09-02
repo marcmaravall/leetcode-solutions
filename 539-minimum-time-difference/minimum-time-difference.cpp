@@ -4,8 +4,8 @@ public:
         const int n = timePoints.size();
         std::vector<int> minutes(n);
         for (int i = 0; i < n; i++) {
-            int mins = static_cast<int>(timePoints[i][4]-'0' + 10*(int)(timePoints[i][3]-'0'));
-            int hours = static_cast<int>(timePoints[i][1]-'0' + 10*(timePoints[i][0]-'0'));
+            int mins = timePoints[i][4]-'0' + 10*(int)(timePoints[i][3]-'0');
+            int hours = timePoints[i][1]-'0' + 10*(timePoints[i][0]-'0');
             minutes[i] = mins + hours*60;
         }
         std::sort(minutes.begin(), minutes.end());
