@@ -18,8 +18,6 @@ public:
         // all even
         odd, even = false, false;
         for (int i = 0; i < n; i++) {
-            if (even && odd)
-                return true;
             if (nums1[i] % 2 == 1) {
                 if (!odd)
                     return false;
