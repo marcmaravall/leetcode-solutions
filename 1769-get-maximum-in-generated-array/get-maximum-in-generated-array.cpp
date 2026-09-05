@@ -1,7 +1,7 @@
 class Solution {
 public:
     int getMaximumGenerated(int n) {
-        if (n <= 1)
+        if (n < 2)
             return n;
         int nums[n+1];
         nums[0] = 0;
