@@ -3,7 +3,7 @@ public:
     int getMaximumGenerated(int n) {
         if (n <= 1)
             return n;
-        std::vector<int> nums(n+1);
+        int nums[n+1];
         nums[0] = 0;
         nums[1] = 1;
         int res = 1;
