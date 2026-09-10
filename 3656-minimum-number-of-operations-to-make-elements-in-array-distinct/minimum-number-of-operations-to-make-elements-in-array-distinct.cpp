@@ -14,11 +14,9 @@ public:
         const int n = nums.size();
         int index = 0;
         int res = 0;
-        for (res; !distinct(freq); res++) {
+        for (res; !distinct(freq); res++, index += 3)
             for (int i = index; i < std::min(n-1, index+3); i++)
                 freq[nums[i]]--;
-            index += 3;
-        }
         return res;
     }
 };
