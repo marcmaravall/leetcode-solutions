@@ -16,7 +16,6 @@ public:
     void count(TreeNode* root, int& elements, int& sum) {
         if (!root)
             return;
-        
         int leftN = 0;
         int left = 0;
         count(root->left, leftN, left);
@@ -26,10 +25,8 @@ public:
         elements++;
         elements += leftN + rightN;
         sum += root->val + right + left;
-        if (sum / elements == root->val) {
+        if (sum / elements == root->val)
             res++;
-        }
-        // std::cout << "sum: " << sum << " n: " << elements << "\n";
     }
 
     int averageOfSubtree(TreeNode* root) {
