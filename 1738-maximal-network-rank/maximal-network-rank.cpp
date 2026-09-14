@@ -1,30 +1,20 @@
 class Solution {
 public:
     int maximalNetworkRank(int n, vector<vector<int>>& roads) {
-        std::array<std::vector<int>, 101> graph;
-        for (auto& road : roads) {
-            graph[road[0]].push_back(road[1]);
-            graph[road[1]].push_back(road[0]);
+        std::vector<int> degree(n, 0);
+        std::vector<std::vector<bool>> connected(n, std::vector<bool>(n, false));
+        const int s = roads.size();
+        for (int i = 0; i < s; i++) {
+            int u = roads[i][0], v = roads[i][1];
+            degree[u]++;
+            degree[v]++;
+            connected[u][v] = true;
+            connected[v][u] = true;
         }
         int res = 0;
-        for (int i = 0; i < 101; i++) {
-            if (graph[i].empty())
-                continue;
-            std::unordered_map<int, bool> map;
-            int containing = 0;
-            for (int x : graph[i]) {
-                map[i << 16 | x] = true;
-                containing++;
-            }
-            for (int j = i+1; j < 101; j++) {
-                if (graph[j].empty())
-                    continue;
-                int curr = containing;
-                for (int x : graph[j]) {
-                    if (!map[j << 16 | x] && !map[x << 16 | j]) {
-                        curr++;
-                    }
-                }
+        for (int i = 0; i < n; i++) {
+            for (int j=i+1; j < n; j++) {
+                int curr = degree[i] + degree[j] - connected[i][j];
                 res = std::max(res, curr);
             }
         }
