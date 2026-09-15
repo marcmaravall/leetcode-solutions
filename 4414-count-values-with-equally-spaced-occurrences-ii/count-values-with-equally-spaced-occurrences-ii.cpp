@@ -11,7 +11,7 @@ public:
             if (size < 3)
                 continue;
             int last = p[0];
-            int eq = true;
+            bool eq = true;
             for (int i = 2; i < size; i++) {
                 if (p[i]-p[i-1] != p[i-1]-last) {
                     eq = false;
