@@ -19,7 +19,6 @@ public:
                 str += s[j];
                 int size = j-i+1;
                 if (size >= k && palindrome(str)) {
-                    // std::cout << "adding to res: " << i << " " << j << " " << str << "\n";
                     res++;
                     last = i;
                     break;
