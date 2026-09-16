@@ -7,11 +7,11 @@ public:
             left++;
         while (right >= 0 && directions[right] == 'R')
             right--;
-        int res = 0;
+        int collisions = 0;
         for (int i = left; i <= right; i++) {
             if (directions[i] != 'S')
-                res++;
+                collisions++;
         }
-        return res;
+        return collisions;
     }
 };
