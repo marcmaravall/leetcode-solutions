@@ -1,7 +1,7 @@
 class Solution {
 public:
     int longestBalanced(string s) {
-        auto valid = [](int freq[26]) -> bool {
+        auto valid = [](const std::array<int, 26>& freq) -> bool {
             int expected = -1;
             for (int i = 0; i < 26; i++) {
                 if (freq[i] != 0) {
@@ -17,7 +17,7 @@ public:
         const int n = s.size();
         for (int i = 0; i < n; i++) {
             std::string str = "";
-            int freq[26] = {};
+            std::array<int, 26> freq = {};
             for (int j = i; j < n; j++) {
                 str += s[j];
                 freq[s[j]-'a']++;
