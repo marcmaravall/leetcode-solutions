@@ -16,13 +16,11 @@ public:
         int res = 1;
         const int n = s.size();
         for (int i = 0; i < n; i++) {
-            std::string str = "";
             std::array<int, 26> freq = {};
             for (int j = i; j < n; j++) {
-                str += s[j];
                 freq[s[j]-'a']++;
                 if (valid(freq))
-                    res = std::max(res, (int)str.size());
+                    res = std::max(res, j-i+1);
             }
         }
         return res;
