@@ -4,9 +4,9 @@ public:
         int res = 0;
         const int n = nums.size();
         for (int i = 0; i < n; ++i) {
-            long long product = 1;
-            long long lcm = 1;
-            long long g = 0;
+            int product = 1;
+            int lcm = 1;
+            int g = 0;
             for (int j = i; j < n; ++j) {
                 product *= nums[j];
                 g = std::gcd(g, (long long)nums[j]);
