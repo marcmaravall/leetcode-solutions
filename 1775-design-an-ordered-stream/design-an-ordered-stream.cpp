@@ -1,18 +1,18 @@
 class OrderedStream {
 private:
-    std::unordered_map<int, std::string> map;
+    std::vector<std::string> stream;
     int ptr = 1;
 
 public:
     OrderedStream(int n) {
-        
+        stream = std::vector<std::string>(n+1);
     }
     
     vector<string> insert(int idKey, string value) {
-        map[idKey] = value;
+        stream[idKey] = value;
         std::vector<std::string> res;
-        while (map.contains(ptr)) {
-            res.push_back(map[ptr++]);
+        while (ptr < stream.size() && !stream[ptr].empty()) {
+            res.push_back(stream[ptr++]);
         }
         return res;
     }
