@@ -9,11 +9,10 @@ public:
     }
     
     vector<string> insert(int idKey, string value) {
-        stream[idKey] = value;
+        stream[idKey] = std::move(value);
         std::vector<std::string> res;
-        while (ptr < stream.size() && !stream[ptr].empty()) {
+        while (ptr < stream.size() && !stream[ptr].empty())
             res.push_back(stream[ptr++]);
-        }
         return res;
     }
 };
