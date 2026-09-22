@@ -10,9 +10,8 @@ public:
     
     void upload(int video) {
         videos[video] = true;
-        while (ptr < videos.size() && videos[ptr]) {
+        while (ptr < videos.size() && videos[ptr])
             ptr++;
-        }
     }
     
     int longest() {
