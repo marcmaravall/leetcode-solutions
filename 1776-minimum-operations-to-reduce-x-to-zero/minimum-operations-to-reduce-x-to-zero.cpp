@@ -1,7 +1,9 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums, int x) {
-        int total = std::accumulate(nums.begin(), nums.end(), 0);
+        int total = 0;
+        for (int a : nums)
+            total += a;
         const int n = nums.size();
         const int expected = total - x;
         int left = 0, right = 0, sum = 0;
@@ -11,7 +13,8 @@ public:
                 sum += nums[right++];
             else if (sum < expected && right < n)
                 sum += nums[right++];
-            else sum -= nums[left++];
+            else 
+                sum -= nums[left++];
             if (sum == total - x)
                 res = std::min(res, n - right + left);
         }
