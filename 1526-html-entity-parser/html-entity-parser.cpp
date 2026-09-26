@@ -22,8 +22,7 @@ public:
                 key += text[i];
             if (i < n && text[i] == ';')
                 key += text[i];
-            const bool match = !replace[key].empty();
-            std::string val = !match ? key : replace[key]; 
+            std::string val = replace[key].empty() ? key : replace[key]; 
             i -= text[i] == '&';
             res += val;
         }
