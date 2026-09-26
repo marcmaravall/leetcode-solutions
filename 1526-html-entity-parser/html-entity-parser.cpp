@@ -18,16 +18,13 @@ public:
             }
             std::string key = "";
             key += text[i];
-            for (++i; i < n && text[i] != ';' && text[i] != '&'; i++) {
+            for (++i; i < n && text[i] != ';' && text[i] != '&'; i++)
                 key += text[i];
-            }
             if (i < n && text[i] == ';')
                 key += text[i];
             const bool match = !replace[key].empty();
             std::string val = !match ? key : replace[key]; 
-            if (text[i] == '&') {
-                i--;
-            }
+            i -= text[i] == '&';
             res += val;
         }
         return res;
