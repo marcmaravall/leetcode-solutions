@@ -11,9 +11,8 @@ public:
                 res += s[i];
                 continue;
             }
-            i++;
             std::string key = "";
-            for (i; s[i] != ')'; i++)
+            for (++i; s[i] != ')'; i++)
                 key += s[i];
             const std::string_view val = map[key];
             res += val.empty() ? "?" : val;
