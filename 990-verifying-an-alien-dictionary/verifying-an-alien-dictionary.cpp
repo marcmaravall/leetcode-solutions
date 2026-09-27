@@ -7,6 +7,6 @@ public:
         for (string &w : words)
             for (char &c : w)
                 c = mapping[c - 'a'];
-        return is_sorted(words.begin(), words.end());
+        return std::is_sorted(words.begin(), words.end());
     }
 };
