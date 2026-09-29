@@ -9,9 +9,7 @@ public:
         }
         for (int i = 0; i < n; i++) {
             for (int k = i + 1; k < n; k++) {
-                if (prefix[i] == prefix[k+1]) {
-                    res += k-i;
-                }
+                res += (prefix[i] == prefix[k+1])*(k-i);
             }
         }
         return res;
