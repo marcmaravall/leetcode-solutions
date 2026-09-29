@@ -7,8 +7,7 @@ public:
         for (int right = 0; right < n; right++) {
             ones += s[right] == '1';
             while (left <= right && (ones > k || s[left] == '0')) {
-                ones -= s[left] == '1';
-                left++;
+                ones -= s[left++] == '1';
             }
             if (ones == k) {
                 int size = right - left + 1;
