@@ -5,22 +5,18 @@ public:
         std::vector<int> res(n);
         int a = 0, b = 0;
         for (int i = 0; i < n; i++) {
+            res[i] = seq[i] == '(' ? a > b : a <= b;
             if (seq[i] == '(') {
                 if (a > b) {
                     b++;
-                    res[i] = 0;
                 } else {
                     a++;
-                    res[i] = 1;
                 }
-                continue;
             }
-            if (a > b) {
+            else if (a > b) {
                 a--;
-                res[i] = 1;
             } else {
                 b--;
-                res[i] = 0;
             }
         }
         return res;
