@@ -6,17 +6,14 @@ public:
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (grid[i][j]) {
-                    onesRow[i]++;
-                    onesCol[j]++;
+                    onesRow[i]++, onesCol[j]++;
                 }
             }
         }
         long long res = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (grid[i][j]) {
-                    res += (onesRow[i]-1)*(onesCol[j]-1);
-                }
+                res += (grid[i][j])*(onesRow[i]-1)*(onesCol[j]-1);
             }
         }
         return res;
