@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isValid(string s) {
-        std::vector<char> st;
+        std::string st;
         for (char c : s) {
             if (c == 'c') {
                 const int n = st.size();
@@ -10,7 +10,7 @@ public:
                 st.pop_back();
                 st.pop_back();
             } else {
-                st.push_back(c);
+                st += c;
             }
         }
         return st.empty();
