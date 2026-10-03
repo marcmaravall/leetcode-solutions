@@ -8,9 +8,8 @@ public:
         std::string res = "";
         res += b; res += a;
         for (int i = 2; i < n; i++) {
-            if (s[i] == a && a == b) {
+            if (s[i] == a && a == b)
                 continue;
-            }
             res += s[i];
             b = a;
             a = s[i];
