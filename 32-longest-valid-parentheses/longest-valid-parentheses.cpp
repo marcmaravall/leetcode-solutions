@@ -8,12 +8,12 @@ public:
         for (int i = 0; i < n; i++) {
             if (s[i] == '(') {
                 st.push(i);
-                continue;
+            } else {
+                st.pop();
+                if (st.empty())
+                    st.push(i);
+                res = std::max(res, i-st.top());
             }
-            st.pop();
-            if (st.empty())
-                st.push(i);
-            else res = std::max(res, i-st.top());
         }
         return res;
     }
