@@ -6,10 +6,10 @@ public:
         for (char c : s) {
             if (c == '(') {
                 depth++;
-            } else {
-                if (depth <= 0) {
-                    res++;
-                } else depth--;
+            } else if (depth <= 0) {
+                res++;
+            } else { 
+                depth--;
             }
         }
         res += depth;
