@@ -43,10 +43,9 @@ public:
 
         int res = 0;
         for (const auto& connections : graph) {
-            int dx = connections.second[0]-1, dy = connections.second[1]-1, dz = connections.second[2]-1;
-            std::array<long long, 3> vec = {dx, dy, dz};
-            std::sort(vec.begin(), vec.end());
-            res += (vec[0]*vec[0] + vec[1]*vec[1] == vec[2]*vec[2]);
+            const long long dx = connections.second[0]-1, dy = connections.second[1]-1, dz = connections.second[2]-1;
+            const long long asq = dx*dx, bsq = dy*dy, csq = dz*dz;
+            res += (asq+bsq == csq || asq+csq == bsq || bsq+csq == asq);
         }
         return res;
     }
