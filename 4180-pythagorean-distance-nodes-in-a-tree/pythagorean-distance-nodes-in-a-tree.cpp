@@ -11,12 +11,8 @@ public:
             graph[u].first.push_back(v);
             graph[v].first.push_back(u);
             for (int i = 0; i < 3; i++) {
-                if (u == xyz[i])
-                    graph[u].second[i] = 1;
-                else graph[u].second[i] = INT_MAX;
-                if (v == xyz[i]) {
-                    graph[v].second[i] = 1;
-                } else graph[v].second[i] = INT_MAX;
+                graph[u].second[i] = INT_MAX;
+                graph[v].second[i] = INT_MAX;
             }
         }
 
@@ -32,7 +28,7 @@ public:
                     q.pop();
                     memo[curr] = true;
 
-                    graph[curr].second[index] = std::min(graph[curr].second[index], distance);
+                    graph[curr].second[index] = distance;
 
                     for (int a : graph[curr].first) {
                         if (!memo[a]) {
