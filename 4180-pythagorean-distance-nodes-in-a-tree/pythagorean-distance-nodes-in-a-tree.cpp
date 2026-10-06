@@ -4,7 +4,7 @@ public:
         std::array<int, 3> xyz;
         xyz[0] = x, xyz[1] = y, xyz[2] = z;
                                                             // dx, dy, dz
-        std::unordered_map<int, std::pair<std::vector<int>, std::array<int, 3>>> graph;
+        std::vector<std::pair<std::vector<int>, std::array<int, 3>>> graph(n);
 
         for (const auto& edge : edges) {
             const int u = edge[0], v = edge[1];
@@ -16,9 +16,9 @@ public:
             }
         }
 
-        auto propagate = [&graph](int node, int index) {
+        auto propagate = [&](int node, int index) {
             std::queue<int> q;
-            std::unordered_map<int, bool> memo;
+            std::vector<bool> memo(n);
             q.push(node);
             memo[node] = true;
             for (int distance = 1; !q.empty(); distance++) {
@@ -27,9 +27,7 @@ public:
                     int curr = q.front();
                     q.pop();
                     memo[curr] = true;
-
                     graph[curr].second[index] = distance;
-
                     for (int a : graph[curr].first) {
                         if (!memo[a]) {
                             q.push(a);
@@ -44,7 +42,7 @@ public:
         }
 
         int res = 0;
-        for (const auto& [node, connections] : graph) {
+        for (const auto& connections : graph) {
             int dx = connections.second[0]-1, dy = connections.second[1]-1, dz = connections.second[2]-1;
             std::array<long long, 3> vec = {dx, dy, dz};
             std::sort(vec.begin(), vec.end());
