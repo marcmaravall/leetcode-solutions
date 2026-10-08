@@ -1,14 +1,11 @@
 class Solution {
 public:
     string removeOuterParentheses(string s) {
-        std::string res = "";
         int depth = 0;
+        std::string res = "";
         for (char c : s) {
-            if (c == '(') {
-                if (depth++ != 0)
-                    res += c;
-            } else {
-                if (--depth != 0)
+            if ((c == '(' && depth++ != 0) ||
+                (c == ')' && --depth != 0)) {
                     res += c;
             }
         }
