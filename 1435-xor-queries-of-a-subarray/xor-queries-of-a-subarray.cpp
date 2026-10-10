@@ -13,9 +13,10 @@ public:
         }
         const int qSize = queries.size();
         std::vector<int> res(qSize);
+        const int total = prefix[n-1];
         for (int i = 0; i < qSize; i++) {
             const int left = queries[i][0], right = queries[i][1];
-            res[i] = prefix[n-1] ^ prefix[right] ^ suffix[left];
+            res[i] = total ^ prefix[right] ^ suffix[left];
         }
         return res;
     }
