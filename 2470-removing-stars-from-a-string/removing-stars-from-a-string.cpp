@@ -1,20 +1,15 @@
 class Solution {
 public:
     string removeStars(string s) {
-        std::stack<int> st;
-        const int n = s.size();
-        for (int i = 0; i < n; i++) {
-            if (s[i] == '*') {
-                int top = st.top();
-                st.pop();
-                s[top] = ' ';
-            } else 
-                st.push(i);
+        int pos = 0;
+        for (char c : s) {
+            if (c == '*') {
+                pos--;
+            } else {
+                s[pos++] = c;
+            }
         }
-        std::string res = "";
-        for (char c : s)
-            if (c != ' ' && c != '*')
-                res += c;
-        return res;
+        s.resize(pos);
+        return s;
     }
 };
