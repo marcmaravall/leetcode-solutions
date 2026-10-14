@@ -2,14 +2,14 @@ class Solution {
 public:
     string maxSumOfSquares(int num, int sum) {
         std::string res(num, '0');
-        int index = 0;
-        while (index < num && sum > 0) {
+        for (int i = 0; i < num && sum > 0; i++) {
             int curr = std::min(9, sum);
             sum -= curr;
-            res[index++] = curr+'0';
+            res[i] = curr+'0';
         }
-        if (sum != 0)
+        if (sum != 0) {
             return "";
+        }
         return res;
     }
 };
