@@ -9,11 +9,7 @@ public:
         for (auto [val, f] : freq) {
             if (f == 1)
                 return -1;
-            int mod3 = f % 3;
-            if (mod3 == 0)
-                res += f/3;
-            else
-                res += f/3+1;
+            res += f/3+((f%3) != 0);
         }
         return res;
     }
