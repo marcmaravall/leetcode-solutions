@@ -11,26 +11,17 @@
  */
 class Solution {
 public:
+    void solve(TreeNode* left, TreeNode* right, int level) {
+        if (!left || !right)
+            return;
+        if (level % 2 == 0)
+            std::swap(left->val, right->val);
+        solve(left->left, right->right, level+1);
+        solve(left->right, right->left, level+1);
+    }
+
     TreeNode* reverseOddLevels(TreeNode* root) {
-        std::queue<TreeNode*> q;
-        q.push(root);
-        for (int level = 0; !q.empty(); level++) {
-            int size = q.size();
-            std::vector<TreeNode*> nodes(size);
-            for (int i = 0; i < size; i++) {
-                TreeNode* curr = q.front();
-                q.pop();
-                if (curr->left)
-                    q.push(curr->left);
-                if (curr->right)
-                    q.push(curr->right);
-                nodes[i] = curr;
-            }
-            if (level % 2 == 1)
-            for (int i = 0; i < size/2; i++) {
-                std::swap(nodes[i]->val, nodes[size-i-1]->val);
-            }
-        }
+        solve(root->left, root->right, 0);
         return root;
     }
 };
