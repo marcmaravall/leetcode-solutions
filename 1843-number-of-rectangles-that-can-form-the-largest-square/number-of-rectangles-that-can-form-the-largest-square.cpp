@@ -3,7 +3,7 @@ public:
     int countGoodRectangles(vector<vector<int>>& rectangles) {
         int res = 0;
         int maxArea = 0;
-        for (auto& rectangle : rectangles) {
+        for (const auto& rectangle : rectangles) {
             int area = std::min(rectangle[0], rectangle[1]);
             if (area == maxArea) {
                 res++;
