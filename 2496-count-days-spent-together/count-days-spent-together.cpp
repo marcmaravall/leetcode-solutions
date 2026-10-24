@@ -12,11 +12,10 @@ public:
     }
 
     int countDaysTogether(string arriveAlice, string leaveAlice, string arriveBob, string leaveBob) {
-        int aAlice = toDays(arriveAlice);
-        int lAlice = toDays(leaveAlice);
-        int aBob = toDays(arriveBob);
-        int lBob = toDays(leaveBob);
-        std::cout << aAlice << " " << lAlice << " " << aBob << " " << lBob << "\n";
+        const int aAlice = toDays(arriveAlice);
+        const int lAlice = toDays(leaveAlice);
+        const int aBob = toDays(arriveBob);
+        const int lBob = toDays(leaveBob);
         return std::max(std::min(lAlice, lBob)-std::max(aAlice, aBob)+1, 0);
     }
 };
