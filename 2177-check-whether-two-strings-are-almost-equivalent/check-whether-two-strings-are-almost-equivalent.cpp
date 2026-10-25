@@ -9,7 +9,7 @@ public:
             freq[c-'a']--;
         }
         for (int f : freq) {
-            if (std::abs(f) > 3)
+            if (f*f > 9)
                 return false;
         }
         return true;
