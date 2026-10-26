@@ -19,9 +19,7 @@ public:
             for (int j = 0; j < m; j++) {
                 if (grid[i][j] > 0) {
                     long long value = count(count, i, j);
-                    if (value % k == 0) {
-                        res++;
-                    }
+                    res += value % k == 0;
                 }
             }
         }
