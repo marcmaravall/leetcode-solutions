@@ -6,7 +6,8 @@ public:
         for (int i = 0; i < n; i++) {
             ones += s[i] == '1';
             int zeros = i-ones+1;
-            if (std::abs(ones-zeros) < 2) {
+            const int d = ones-zeros;
+            if (d > -2 && d < 2) {
                 res++;
             }
         }
