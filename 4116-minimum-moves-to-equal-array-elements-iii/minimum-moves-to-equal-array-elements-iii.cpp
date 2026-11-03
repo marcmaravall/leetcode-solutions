@@ -7,6 +7,6 @@ public:
             max = std::max(max, x);
             sum += x;
         }
-        return std::abs(sum-(int)nums.size()*max);
+        return -(sum-(int)nums.size()*max);
     }
 };
