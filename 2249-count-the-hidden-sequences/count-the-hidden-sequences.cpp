@@ -4,14 +4,12 @@ public:
         const int n = differences.size();
         long long min = INT_MAX, max = INT_MIN;
         long long last = 0;
-        for (int i = 0; i < n; i++) {
-            long long cur = differences[i]+last;
+        for (int i = 0; i < n+1; i++) {
             min = std::min(min, last);
             max = std::max(max, last);
-            last = cur;
+            if (i != n)
+                last += differences[i];
         }
-        min = std::min(min, last);
-        max = std::max(max, last);
         long long diff = max-min;
         if (upper-lower < diff) {
             return 0;
