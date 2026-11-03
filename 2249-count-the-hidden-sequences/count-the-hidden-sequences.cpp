@@ -2,15 +2,16 @@ class Solution {
 public:
     int numberOfArrays(vector<int>& differences, int lower, int upper) {
         const int n = differences.size();
-        std::vector<long long> hidden(n+1);
         long long min = INT_MAX, max = INT_MIN;
+        long long last = 0;
         for (int i = 0; i < n; i++) {
-            hidden[i+1] = differences[i]+hidden[i];
-            min = std::min(min, hidden[i]);
-            max = std::max(max, hidden[i]);
+            long long cur = differences[i]+last;
+            min = std::min(min, last);
+            max = std::max(max, last);
+            last = cur;
         }
-        min = std::min(min, hidden.back());
-        max = std::max(max, hidden.back());
+        min = std::min(min, last);
+        max = std::max(max, last);
         long long diff = max-min;
         if (upper-lower < diff) {
             return 0;
