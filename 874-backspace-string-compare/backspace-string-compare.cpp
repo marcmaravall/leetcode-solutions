@@ -7,10 +7,8 @@ public:
         for (int i = 0; i < n; i++) {
             if (str[i] != '#') {
                 res[cursor++] = str[i];
-            } else {
-                if (--cursor <= 0) {
-                    cursor = 0;
-                }
+            } else if (--cursor <= 0) {
+                cursor = 0;
             }
         }
         res.resize(cursor);
