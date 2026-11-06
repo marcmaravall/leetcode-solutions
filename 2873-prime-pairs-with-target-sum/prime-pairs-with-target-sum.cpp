@@ -8,16 +8,15 @@ public:
                 continue;
             }
             primes.push_back(i);
-            //std::cout << i << "\n";
             for (int j = 2*i; j <= n; j += i) {
                 sieve[j] = true;
-                //std::cout << "not prime: " << j << "\n";
             }
         }
         std::vector<std::vector<int>> res;
         for (int p : primes) {
-            if (p > n/2)
+            if (p > n/2) {
                 break;
+            }
             if (!sieve[p] && !sieve[n-p]) {
                 res.push_back({p, n-p});
             }
