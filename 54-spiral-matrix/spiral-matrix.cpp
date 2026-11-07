@@ -19,9 +19,6 @@ public:
                 res[index++] = matrix[i][depth];
             }
         }
-        if (n == m && n % 2 == 0) {
-            return res;
-        }
         if (n > m && m%2 == 1) {
             for (int i = 0; i <= n-m; i++) {
                 res[index++] = matrix[m/2+i][m/2];
