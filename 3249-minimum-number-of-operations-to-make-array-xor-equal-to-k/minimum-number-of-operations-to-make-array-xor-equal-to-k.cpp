@@ -8,7 +8,7 @@ public:
         int res = 0;
         for (int i = 31; i >= 0; i--) {
             int mask = 1 << i;
-            res += ((a & mask) != (k & mask));
+            res += (a & mask) != (k & mask);
         }
         return res;
     }
