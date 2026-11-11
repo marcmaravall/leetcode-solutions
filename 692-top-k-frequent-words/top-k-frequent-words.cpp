@@ -2,9 +2,8 @@ class Solution {
 public:
     vector<string> topKFrequent(vector<string>& words, int k) {
         std::unordered_map<std::string_view, int> freq;
-        int maxFreq = 0;
         for (const auto& word : words) {
-            maxFreq = std::max(maxFreq, ++freq[word]);
+            freq[word]++;
         }
         std::vector<std::string> res;
         for (auto [str, f] : freq) {
