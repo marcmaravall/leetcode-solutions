@@ -15,13 +15,8 @@ public:
                 different += ++freq[fruits[right++]] == 1;
             }
             if (different <= 2) {
-                int size = right-left;
-                if (res < size) {
-                    res = size;
-                    // std::cout << "* ";
-                }
+                res = std::max(res, right-left);
             }
-            // std::cout << left << " : " << right << "    different " << different << "\n";
         }
         return res;
     }
