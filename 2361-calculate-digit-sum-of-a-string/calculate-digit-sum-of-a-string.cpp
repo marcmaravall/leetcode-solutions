@@ -18,7 +18,7 @@ public:
             if (b) {
                 str += std::to_string(num);
             }
-            s = str;
+            s = std::move(str);
         }
         return s;
     }
