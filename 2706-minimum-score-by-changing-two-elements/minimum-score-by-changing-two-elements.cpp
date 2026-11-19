@@ -3,7 +3,6 @@ public:
     int minimizeSum(vector<int>& nums) {
         const int n = nums.size();
         std::sort(nums.begin(), nums.end());
-        int res = std::min({nums[n-1]-nums[2], nums[n-3]-nums[0], nums[n-2]-nums[1]});
-        return res;
+        return std::min({nums[n-1]-nums[2], nums[n-3]-nums[0], nums[n-2]-nums[1]});
     }
 };
