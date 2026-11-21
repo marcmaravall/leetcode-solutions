@@ -30,7 +30,6 @@ public:
         for (int i = 0; i < n; i++) {
             int x1 = i < v1.size() ? std::stoi(v1[i]) : 0;
             int x2 = i < v2.size() ? std::stoi(v2[i]) : 0;
-            // std::cout << "comparing " << x1 << " to " << x2 << "\n";
             if (x1 < x2) {
                 return -1;
             } else if (x1 > x2) {
