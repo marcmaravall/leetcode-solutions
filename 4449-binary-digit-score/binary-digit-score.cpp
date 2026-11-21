@@ -7,9 +7,6 @@ public:
             s1 += a & mask ? 1 : 0;
             s2 += b & mask ? 1 : 0;
         }
-        if (s1 >= s2) {
-            return s1*s2;
-        }
-        return s2/s1;
+        return s1 >= s2 ? s1*s2 : s2/s1;
     }
 };
